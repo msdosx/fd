@@ -45,7 +45,9 @@ gem 'cancan'
 
 gem "less-rails"
 
-gem 'protected_attributes'
+gem 'protected_attributes' # TODO: fix params to remove this gem
+
+gem "koala"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
