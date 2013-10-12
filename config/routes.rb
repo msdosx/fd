@@ -1,4 +1,6 @@
 Fd::Application.routes.draw do
+  resources :facebook_news
+
   get "dashboard/show"
   get "dasboard/show"
   devise_for :users
