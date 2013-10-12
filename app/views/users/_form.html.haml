@@ -1,28 +1,68 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :nickname
-    = f.text_field :nickname
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :soname
-    = f.text_field :soname
-  .field
-    = f.label :lastname
-    = f.text_field :lastname
-  .field
-    = f.label :bday
-    = f.date_select :bday
-  .field
-    = f.label :hobby
-    = f.text_area :hobby
-  .actions
-    = f.submit 'Save'
+= form_for @user, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :username, :class => 'control-label'
+    .controls
+      = f.text_field :username, :class => 'text_field'
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :soname, :class => 'control-label'
+    .controls
+      = f.text_field :soname, :class => 'text_field'
+  .control-group
+    = f.label :lastname, :class => 'control-label'
+    .controls
+      = f.text_field :lastname, :class => 'text_field'
+  .control-group
+    = f.label :bday, :class => 'control-label'
+    .controls
+      = f.text_field :bday, :class => 'text_field'
+  .control-group
+    = f.label :hobby, :class => 'control-label'
+    .controls
+      = f.text_field :hobby, :class => 'text_field'
+  .control-group
+    = f.label :enabled, :class => 'control-label'
+    .controls
+      = f.text_field :enabled, :class => 'text_field'
+  .control-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'text_field'
+  .control-group
+    = f.label :encrypted_password, :class => 'control-label'
+    .controls
+      = f.text_field :encrypted_password, :class => 'text_field'
+  .control-group
+    = f.label :reset_password_token, :class => 'control-label'
+    .controls
+      = f.text_field :reset_password_token, :class => 'text_field'
+  .control-group
+    = f.label :reset_password_sent_at, :class => 'control-label'
+    .controls
+      = f.text_field :reset_password_sent_at, :class => 'text_field'
+  .control-group
+    = f.label :remember_created_at, :class => 'control-label'
+    .controls
+      = f.text_field :remember_created_at, :class => 'text_field'
+  .control-group
+    = f.label :current_sign_in_at, :class => 'control-label'
+    .controls
+      = f.text_field :current_sign_in_at, :class => 'text_field'
+  .control-group
+    = f.label :last_sign_in_at, :class => 'control-label'
+    .controls
+      = f.text_field :last_sign_in_at, :class => 'text_field'
+  .control-group
+    = f.label :current_sign_in_ip, :class => 'control-label'
+    .controls
+      = f.text_field :current_sign_in_ip, :class => 'text_field'
+  .control-group
+    = f.label :last_sign_in_ip, :class => 'control-label'
+    .controls
+      = f.text_field :last_sign_in_ip, :class => 'text_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
