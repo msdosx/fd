@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Nickname:
+  = @user.nickname
+%p
+  %b Name:
+  = @user.name
+%p
+  %b Soname:
+  = @user.soname
+%p
+  %b Lastname:
+  = @user.lastname
+%p
+  %b Bday:
+  = @user.bday
+%p
+  %b Hobby:
+  = @user.hobby
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
