@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012152517) do
+ActiveRecord::Schema.define(version: 20131012154347) do
 
   create_table "created_users", force: true do |t|
     t.integer  "role_id"
@@ -23,25 +23,13 @@ ActiveRecord::Schema.define(version: 20131012152517) do
   add_index "created_users", ["role_id"], name: "index_created_users_on_role_id"
   add_index "created_users", ["user_id"], name: "index_created_users_on_user_id"
 
-  create_table "facebook_news", force: true do |t|
-    t.string   "nickname"
-    t.string   "about"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "facebook_news", ["tag_id"], name: "index_facebook_news_on_tag_id"
-
-  create_table "news", force: true do |t|
-    t.integer  "tag_id"
-    t.string   "nickname"
+  create_table "opinions", force: true do |t|
+    t.text     "nickname"
     t.text     "about"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "news", ["tag_id"], name: "index_news_on_tag_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"

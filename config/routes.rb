@@ -1,5 +1,5 @@
 Fd::Application.routes.draw do
-  resources :facebook_news
+  resources :opinions
 
   get "dashboard/show"
   get "dasboard/show"

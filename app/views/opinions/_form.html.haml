@@ -1,4 +1,4 @@
-= form_for @facebook_news, :html => { :class => 'form-horizontal' } do |f|
+= form_for @opinion, :html => { :class => 'form-horizontal' } do |f|
   .control-group
     = f.label :nickname, :class => 'control-label'
     .controls
@@ -13,4 +13,4 @@
       = f.text_field :tag_id, :class => 'text_field'
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), facebook_news_path, :class => 'btn'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), opinions_path, :class => 'btn'

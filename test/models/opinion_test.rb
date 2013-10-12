@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FacebookNewsTest < ActiveSupport::TestCase
+class OpinionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
