@@ -1,2 +1,19 @@
-%h1 Dashboard#show
-%p Find me in app/views/dashboard/show.html.haml
+.span1
+.span6
+  .hero-unit
+    %h2 fD is user friendly newspaper
+    %p
+      Donec id elit non mi porta gravida at eget metus.
+      Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+      ut fermentum massa justo sit amet risus. Etiam porta
+      sem malesuada magna mollis euismod. Donec sed odio dui.
+.span4
+  .hero-unit
+    %h2 Присоединяйтесь
+    %p
+      Присоединитесь к нам, пройдя регистрацию всего в пару кликов
+    =link_to 'Регистрация', new_user_registration_path, :class => 'btn btn-success btn-lg'
+    %p
+      Уже зарегестрированы? тогда просто авторизуйтесь
+    =link_to 'Войти', new_user_session_path, :class => 'btn btn-success btn-lg'
+.span1
