@@ -49,6 +49,9 @@ gem 'protected_attributes' # TODO: fix params to remove this gem
 
 gem "koala", "~> 1.7.0rc1"
 
+gem 'will_paginate', '~> 3.0'
+gem "paperclip", "~> 3.0"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
