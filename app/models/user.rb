@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
@@ -6,7 +7,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :authentication_keys => [:login]
+         :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
   #attr_accessible :username, :email, :password, :password_confirmation, :remember_me,
   #                :name, :soname, :lastname, :bday, :hobby, :login
 
@@ -18,6 +19,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  #after_save { self.add_role(:standard) unless self.has_any_role? } TODO: add role
 
 ### This is the correct method you override with the code above
 ### def self.find_for_database_authentication(warden_conditions)
