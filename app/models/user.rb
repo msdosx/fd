@@ -6,14 +6,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me,
-                  :name, :soname, :lastname, :bday, :hobby, :login
+         :recoverable, :rememberable, :trackable, :authentication_keys => [:login]
+  #attr_accessible :username, :email, :password, :password_confirmation, :remember_me,
+  #                :name, :soname, :lastname, :bday, :hobby, :login
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", {:value => login.downcase}]).first
     else
       where(conditions).first
     end
@@ -25,6 +25,6 @@ class User < ActiveRecord::Base
   validates :username,
             :uniqueness => {
                 :case_sensitive => false
-            },
-            :format => { with: /[A-Za-z0-9:punct:]/ } # TODO: change username format.
+            }                                     #TODO: write devise validation
+  #,:format => { with: /[A-Za-z0-9:punct:]/ } # TODO: change username format.
 end
