@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
-  #attr_accessible :username, :email, :password, :password_confirmation, :remember_me,
-  #                :name, :soname, :lastname, :bday, :hobby, :login
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -20,7 +18,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  #after_save { self.add_role(:standard) unless self.has_any_role? } TODO: add role
+  after_create { CreatedUser.create user: self, role: Role.find_by_name('user') }
 
 ### This is the correct method you override with the code above
 ### def self.find_for_database_authentication(warden_conditions)
@@ -28,6 +26,6 @@ class User < ActiveRecord::Base
   validates :username,
             :uniqueness => {
                 :case_sensitive => false
-            }                                     #TODO: write devise validation
-  #,:format => { with: /[A-Za-z0-9:punct:]/ } # TODO: change username format.
+            } #TODO: write devise validation
+              #,:format => { with: /[A-Za-z0-9:punct:]/ } # TODO: change username format.
 end
