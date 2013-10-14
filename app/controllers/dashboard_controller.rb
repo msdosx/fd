@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   def index
-    user_signed_in?? (path = users_path(current_user)) : (path = dashboard_show_path)
+    user_signed_in?? (path = user_path(current_user)) : (path = dashboard_show_path)
 
     redirect_to path
   end
