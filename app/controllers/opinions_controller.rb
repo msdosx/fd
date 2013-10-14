@@ -1,4 +1,5 @@
 class OpinionsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_opinion, only: [:show, :edit, :update, :destroy]
 
   # GET /opinions
