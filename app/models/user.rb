@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
+  before_create :create_role
+
+  has_many :users_roles, :dependent => :destroy
+  has_many :roles, :through => :users_roles
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -18,7 +22,14 @@ class User < ActiveRecord::Base
     end
   end
 
-  after_create { CreatedUser.create user: self, role: Role.find_by_name('user') }
+  def role?(role)
+    return !!self.roles.find_by_name(role)
+  end
+
+  private
+  def create_role
+    self.roles << Role.find_by_name(:user) if ENV["RAILS_ENV"] != 'test'
+  end
 
 ### This is the correct method you override with the code above
 ### def self.find_for_database_authentication(warden_conditions)
@@ -27,5 +38,5 @@ class User < ActiveRecord::Base
             :uniqueness => {
                 :case_sensitive => false
             },
-            :format => { with: /[[:word:]]/ }
+            :format => {with: /[[:word:]]/}
 end

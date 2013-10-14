@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131012154347) do
-
-  create_table "created_users", force: true do |t|
-    t.integer  "role_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "created_users", ["role_id"], name: "index_created_users_on_role_id"
-  add_index "created_users", ["user_id"], name: "index_created_users_on_user_id"
+ActiveRecord::Schema.define(version: 20131014115221) do
 
   create_table "opinions", force: true do |t|
     t.text     "nickname"
@@ -31,17 +21,23 @@ ActiveRecord::Schema.define(version: 20131012154347) do
     t.datetime "updated_at"
   end
 
+  add_index "opinions", ["nickname"], name: "index_opinions_on_nickname", unique: true
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "roles", ["name"], name: "index_roles_on_name", unique: true
+
   create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "user_likes", force: true do |t|
     t.integer  "user_id"
@@ -78,5 +74,12 @@ ActiveRecord::Schema.define(version: 20131012154347) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_roles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

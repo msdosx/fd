@@ -28,19 +28,19 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
+    user ||= User.new
 
-       user ||= User.new # guest user (not logged in)
-       if user.role == Role.find_by_name('admin')
-         can :add_tags, :all
-         can [:create, :block, :delete, :edit], :users
-         can [:add, :delete, :update], :facebook_news_peoples
-         can [:grant, :take_off], :rights
-         can :read, :posts
-       end
+    if user.role? :admin
+      can :add, Tag
+      can [:create, :block, :delete, :edit], User
+      can [:add, :delete, :update], Opinion
+      can [:up, :down], Role
+      can :read, Post
+    end
 
-       if user.role == Role.find_by_name('user')
-         can :read, :posts
-         can :edit, :self
-       end
+    if user.role? :user
+      can :read, Post
+      can :edit, user
+    end
   end
 end
