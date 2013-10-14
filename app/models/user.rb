@@ -26,6 +26,6 @@ class User < ActiveRecord::Base
   validates :username,
             :uniqueness => {
                 :case_sensitive => false
-            } #TODO: write devise validation
-              #,:format => { with: /[A-Za-z0-9:punct:]/ } # TODO: change username format.
+            },
+            :format => { with: /[[:word:]]/ }
 end

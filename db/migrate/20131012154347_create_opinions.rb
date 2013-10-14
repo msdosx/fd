@@ -6,6 +6,7 @@ class CreateOpinions < ActiveRecord::Migration
       t.references :tag
 
       t.timestamps
+      add_index :opinions, :nickname, :unique => true
     end
   end
 end

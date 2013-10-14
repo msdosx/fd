@@ -40,6 +40,7 @@ class Ability
 
        if user.role == Role.find_by_name('user')
          can :read, :posts
+         can :edit, :self
        end
   end
 end
