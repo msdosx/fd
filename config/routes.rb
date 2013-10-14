@@ -4,8 +4,7 @@ Fd::Application.routes.draw do
   get "dashboard/show"
 
 
-  devise_for :users #, :controllers => { :registrations => 'registration' }
-  #devise_for :users
+  devise_for :users
   resources :users
 
   root :to => 'dashboard#show'
