@@ -36,6 +36,9 @@ gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'awesome_print'
 end
 
 gem "haml-rails"
