@@ -34,6 +34,9 @@
               - if can? :index, User
                 %li
                   =link_to "Управление пользователями", users_path
+              - if can? :index, Opinion
+                %li
+                  =link_to "Управление подписками", opinions_path
             %ul.nav.pull-right
               %li.dropdown
                 =link_to current_user.username, user_path(current_user),
@@ -46,7 +49,7 @@
                     %p.text-center
                       =current_user.email
                   %li.divider
-                  -if can? :edit, :self
+                  -if can? :edit, current_user
                     %li= link_to "Редактировать профиль", edit_user_registration_path(current_user)
                   %li= link_to "Выйти", destroy_user_session_path
 
