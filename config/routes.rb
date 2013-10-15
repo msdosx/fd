@@ -6,6 +6,8 @@ Fd::Application.routes.draw do
 
   devise_for :users
   resources :users
+  resources :opinions
+  resources :tags
 
   root :to => 'dashboard#index'
 

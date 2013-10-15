@@ -32,8 +32,9 @@ class Ability
 
     if user.role? :admin
       can :add, Tag
-      can [:index, :update, :destroy, :edit, :block, :show, :new], User
-      can [:index, :show, :update, :destroy, :edit, :create], Opinion
+      can [:index, :show, :update, :destroy, :edit, :create], User
+      can [:index, :show, :update, :destroy, :edit, :create, :new], Opinion
+      can [:index, :show, :update, :destroy, :edit, :create, :new], Tag
       can [:up, :down], Role
     end
 
