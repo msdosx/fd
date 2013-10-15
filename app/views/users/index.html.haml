@@ -33,10 +33,14 @@
         %td
           - if can? :edit, User
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini'
-          - if can? :block, User
-            = link_to 'block', users_path, :class => 'btn btn-mini btn-danger'
+          -#- if can? :block, User
+          -#  = link_to 'block', users_path, :class => 'btn btn-mini btn-danger'
           - if can? :delete, User
             = link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(user), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-= will_paginate @users
+- if can? :create, User
+  = link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'
+.row
+  .span3
+  .span6
+    = will_paginate @users, class: "apple_pagination"
 
-= link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'

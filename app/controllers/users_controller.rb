@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     #Post.paginate(:page => params[:page], :per_page => 30)
     #@users = User.all
-    @users = User.paginate(:page => params[:page], :per_page => 20)
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /users/1
@@ -73,6 +73,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nickname, :name, :soname, :lastname, :bday, :hobby)
+      params.require(:user).permit(:nickname, :name, :soname, :lastname, :bday, :hobby, :enabled)
     end
 end

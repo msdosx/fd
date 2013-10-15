@@ -18,7 +18,7 @@
   .control-group
     = f.label :bday, :class => 'control-label'
     .controls
-      = f.text_field :bday, :class => 'text_field'
+      = f.date_field :bday, :class => 'date_field'
   .control-group
     = f.label :hobby, :class => 'control-label'
     .controls
@@ -26,43 +26,17 @@
   .control-group
     = f.label :enabled, :class => 'control-label'
     .controls
-      = f.text_field :enabled, :class => 'text_field'
+      = f.select :enabled,[['активен',true],['заблокирован',false]], selected: (@user.enabled == true) ? true : false
+      -#= f.text_field :enabled, :class => 'text_field'
   .control-group
     = f.label :email, :class => 'control-label'
     .controls
       = f.text_field :email, :class => 'text_field'
-  .control-group
-    = f.label :encrypted_password, :class => 'control-label'
-    .controls
-      = f.text_field :encrypted_password, :class => 'text_field'
-  .control-group
-    = f.label :reset_password_token, :class => 'control-label'
-    .controls
-      = f.text_field :reset_password_token, :class => 'text_field'
-  .control-group
-    = f.label :reset_password_sent_at, :class => 'control-label'
-    .controls
-      = f.text_field :reset_password_sent_at, :class => 'text_field'
-  .control-group
-    = f.label :remember_created_at, :class => 'control-label'
-    .controls
-      = f.text_field :remember_created_at, :class => 'text_field'
-  .control-group
-    = f.label :current_sign_in_at, :class => 'control-label'
-    .controls
-      = f.text_field :current_sign_in_at, :class => 'text_field'
-  .control-group
-    = f.label :last_sign_in_at, :class => 'control-label'
-    .controls
-      = f.text_field :last_sign_in_at, :class => 'text_field'
-  .control-group
-    = f.label :current_sign_in_ip, :class => 'control-label'
-    .controls
-      = f.text_field :current_sign_in_ip, :class => 'text_field'
-  .control-group
-    = f.label :last_sign_in_ip, :class => 'control-label'
-    .controls
-      = f.text_field :last_sign_in_ip, :class => 'text_field'
+  -#.control-group
+  -#  = f.label :password, :class => 'control-label'
+  -#  .controls
+  -#    = f.text_field :password, :class => 'text_field'
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    - if can? :edit, User
+      = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
