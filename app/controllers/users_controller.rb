@@ -1,24 +1,22 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /users
   # GET /users.json
   def index
-    #render :file => "public/401.html", :status => :unauthorized unless cannot :view, User
-    redirect_to user_path(current_user), :alert => "access denied" if cannot? :view, User
     @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @tags= Tag.all
+    @tags= Tag.all     #TODO: remove or change this route
   end
 
   # GET /users/1/edit
   def edit
-    redirect_to user_path(current_user), :alert => "access denied" if cannot? :edit, User
   end
 
   # POST /users
@@ -41,7 +39,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    redirect_to user_path(current_user), :alert => "access denied" if cannot? :delete, User
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url }

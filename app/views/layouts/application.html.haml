@@ -31,20 +31,20 @@
           = link_to "fD", root_path, :class => "brand"
           .container.nav-collapse
             %ul.nav
-              - if can? :view, User
+              - if can? :index, User
                 %li
-                  =link_to "Список пользователей", users_path
+                  =link_to "Управление пользователями", users_path
             %ul.nav.pull-right
               %li.dropdown
-                =link_to @user.username, user_path(current_user),
+                =link_to current_user.username, user_path(current_user),
                  class: "brand dropdown-toggle", "data-toggle" => "dropdown"
                 %ul.dropdown-menu
                   %li
-                    %p
-                      =@user.username
+                    %p.text-center
+                      =current_user.username
                   %li
-                    %p
-                      =@user.email
+                    %p.text-center
+                      =current_user.email
                   %li.divider
                   -if can? :edit, :self
                     %li= link_to "Редактировать профиль", edit_user_registration_path(current_user)
