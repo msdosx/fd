@@ -36,6 +36,7 @@ class Ability
       can [:index, :show, :update, :destroy, :edit, :create, :new], Opinion
       can [:index, :show, :update, :destroy, :edit, :create, :new], Tag
       can [:up, :down], Role
+      can :see, :control_menu
     end
 
     if user.role? :user

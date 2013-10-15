@@ -30,17 +30,27 @@
           -#%a.brand(href="#") Fd
           = link_to "fD", root_path, :class => "brand"
           .container.nav-collapse
-            %ul.nav
-              - if can? :index, User
-                %li
-                  =link_to "Управление пользователями", users_path
-              - if can? :index, Opinion
-                %li
-                  =link_to "Управление подписками", opinions_path
+            -if can? :see, :control_menu
+              %ul.nav
+                %li.dropdown
+                  %a.dropdown-toggle.brand{"data-toggle" => "dropdown", href: "#{user_path(current_user)}"}
+                    Управление
+                    %b.caret
+                  %ul.dropdown-menu
+                    - if can? :index, User
+                      %li
+                        =link_to "Управление пользователями", users_path, class: "text-center"
+                    - if can? :index, Opinion
+                      %li
+                        =link_to "Управление подписками", opinions_path, class: "text-center"
+                    - if can? :index, Tag
+                      %li
+                        =link_to "Управление тегами", tags_path, class: "text-center"
             %ul.nav.pull-right
               %li.dropdown
-                =link_to current_user.username, user_path(current_user),
-                 class: "brand dropdown-toggle", "data-toggle" => "dropdown"
+                %a.dropdown-toggle.brand{"data-toggle" => "dropdown", href: "#{user_path(current_user)}"}
+                  = current_user.username
+                  %b.caret
                 %ul.dropdown-menu
                   %li
                     %p.text-center
