@@ -37,8 +37,8 @@
           -#  = link_to 'block', users_path, :class => 'btn btn-mini btn-danger'
           - if can? :delete, User
             = link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(user), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-- if can? :create, User
-  = link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'
+-#- if can? :create, User
+-#  = link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary'
 .row
   .span3
   .span6
