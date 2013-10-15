@@ -1,12 +1,12 @@
 class OpinionsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_opinion, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource  #TODO: fix cancan in opinion
 
   # GET /opinions
   # GET /opinions.json
   def index
-    @opinions = Opinion.all
+    @opinions = Opinion.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /opinions/1
@@ -16,6 +16,7 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/new
   def new
+    #@opinion = Opinion.new
     @opinion = Opinion.new
   end
 
@@ -64,6 +65,10 @@ class OpinionsController < ApplicationController
   end
 
   private
+
+    #def new_opinion
+    #  @user = Opinion.new(safe_params)
+    #end
     # Use callbacks to share common setup or constraints between actions.
     def set_opinion
       @opinion = Opinion.find(params[:id])
