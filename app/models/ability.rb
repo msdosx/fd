@@ -35,11 +35,12 @@ class Ability
       can [:create, :block, :delete, :edit, :view], User
       can [:add, :delete, :update, :read], Opinion
       can [:up, :down], Role
+      can :edit, :self
     end
 
     if user.role? :user
       can :read, Opinion
-      can :edit, user
+      can :edit, :self
     end
   end
 end
