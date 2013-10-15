@@ -1,13 +1,14 @@
 .span3
   .well.sidebar-nav
     %ul.nav.nav-list
-      %li.nav-header Выбор по рубрикам
+      %h3 Выбор по рубрикам
+      %li.nav-header
       - @tags.each do |tag|
         %li
           = link_to "##{tag.name}", user_path(current_user)
       %hr
-      - if can? :add, Tag
-        = link_to "add tags", users_path, :class => "btn btn-primary btn-small"
+      -#- if can? :add, Tag
+      -#  = link_to "add tags", users_path, :class => "btn btn-primary btn-small"
 .span9
   %h1
     Лента новостей

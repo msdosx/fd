@@ -12,5 +12,6 @@
     .controls
       = f.collection_select :tag_id, Tag.all, :id, :name, prompt: true
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    - if can? :edit, Opinion
+      = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), opinions_path, :class => 'btn'

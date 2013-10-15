@@ -4,5 +4,6 @@
     .controls
       = f.text_field :name, :class => 'text_field'
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
+    - if can? :edit, Tag
+      = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), tags_path, :class => 'btn'
