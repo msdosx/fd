@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource  #TODO: fix cancan in opinion
+  load_and_authorize_resource  #TODO: fix cancan in opinion
 
   # GET /tags
   # GET /tags.json

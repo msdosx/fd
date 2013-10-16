@@ -1,7 +1,7 @@
 class OpinionsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_opinion, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource  #TODO: fix cancan in opinion
+  load_and_authorize_resource  #TODO: fix cancan in opinion
 
   # GET /opinions
   # GET /opinions.json
