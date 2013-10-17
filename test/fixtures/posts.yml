@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyString
+  likes: 1
+  pic_url: MyString
+  from: MyString
+  updated_time: 2013-10-17 22:36:12
+  comments_id: 
+
+two:
+  message: MyString
+  likes: 1
+  pic_url: MyString
+  from: MyString
+  updated_time: 2013-10-17 22:36:12
+  comments_id: 

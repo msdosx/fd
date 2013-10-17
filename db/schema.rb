@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014115221) do
+ActiveRecord::Schema.define(version: 20131017184854) do
+
+  create_table "comments", force: true do |t|
+    t.string   "message"
+    t.integer  "likes"
+    t.datetime "updated_at"
+    t.string   "from"
+    t.integer  "post_id"
+    t.datetime "created_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
   create_table "opinions", force: true do |t|
     t.text     "nickname"
@@ -22,6 +33,16 @@ ActiveRecord::Schema.define(version: 20131014115221) do
   end
 
   add_index "opinions", ["nickname"], name: "index_opinions_on_nickname", unique: true
+
+  create_table "posts", force: true do |t|
+    t.string   "message"
+    t.integer  "likes"
+    t.string   "pic_url"
+    t.string   "from"
+    t.datetime "updated_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"
