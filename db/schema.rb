@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20131017184854) do
     t.integer  "likes",        default: 0,  null: false
     t.string   "pic_url",      default: "", null: false
     t.string   "from"
+    t.integer  "opinion_id"
     t.datetime "updated_time"
     t.datetime "created_at"
     t.datetime "updated_at"

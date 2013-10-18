@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :likes, default: 0, null: false
       t.string :pic_url, default: '', null: false
       t.string :from
+      t.references :opinion
       t.datetime :updated_time
 
       t.timestamps

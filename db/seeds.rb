@@ -10,7 +10,7 @@ Role.create [{name: 'user'}, {name: 'admin'}]
 User.create username: 'admin', name: 'Yuri', soname: 'Panchenko',email: '1msdos1@gmail.com',
             password: '123123123', password_confirmation: '123123123'
 
-200.times do |ind|
+20.times do |ind|
   User.create username: "user#{ind}", name: 'Yuri', soname: 'Panchenko',email: "#{ind}msdos1@gmail.com",
               password: '123123123', password_confirmation: '123123123'
 end
