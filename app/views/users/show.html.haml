@@ -16,13 +16,12 @@
       .msg_body
         .hero-unit
           .media
-            %a.pull-left{href: post.pic_url}
-              -#%img{alt: "", "data-src" => "holder.js/300x200"}/
-              =image_tag post.pic_url, class: 'img-polaroid img_blog'
+            -unless post.pic_url == '0'
+              %a.pull-left{href: post.pic_url}
+                =image_tag post.pic_url, class: 'img-polaroid img_blog'
             .media-body
               %h4.media-heading.text-center
                 =post.from
-              / Nested media object
               .media
                 -#=post.updated_at
                 %p

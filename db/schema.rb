@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018075632) do
-
-  create_table "base_settings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "post_keep_days_delta", default: 10
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131017184854) do
 
   create_table "comments", force: true do |t|
     t.string   "message"
@@ -35,6 +28,7 @@ ActiveRecord::Schema.define(version: 20131018075632) do
     t.text     "nickname"
     t.text     "about"
     t.integer  "tag_id"
+    t.integer  "delta_days", default: 31
     t.datetime "created_at"
     t.datetime "updated_at"
   end

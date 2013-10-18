@@ -4,7 +4,7 @@ class CreateOpinions < ActiveRecord::Migration
       t.text :nickname
       t.text :about
       t.references :tag
-
+      t.integer :delta_days, default: 31
       t.timestamps
     end
     add_index :opinions, :nickname, :unique => true
