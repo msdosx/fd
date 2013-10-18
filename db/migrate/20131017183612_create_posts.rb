@@ -2,8 +2,8 @@ class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
       t.string :message
-      t.integer :likes
-      t.string :pic_url
+      t.integer :likes, default: 0, null: false
+      t.string :pic_url, default: '', null: false
       t.string :from
       t.datetime :updated_time
 
