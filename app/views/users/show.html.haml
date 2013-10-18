@@ -1,23 +1,32 @@
-.span3
-  .well.sidebar-nav
-    %ul.nav.nav-list
-      %h3 Выбор по рубрикам
-      %li.nav-header
-      - @tags.each do |tag|
-        %li
-          = link_to "##{tag.name}", user_path(current_user)
-      %hr
+.span2
+  .fixed_menu
+    .well.sidebar-nav
+      %ul.nav.nav-list
+        %h3 Выбор по рубрикам
+        %li.nav-header
+        - @tags.each do |tag|
+          %li
+            = link_to "##{tag.name}", user_path(current_user)
+        %hr
 .span9
-  %h1
+  %h1.text-center
     Лента новостей
   -@post.each do |post|
     .span6.news
-      .hero-unit
-        %h3
-          =post.from
-        .span6
-          =image_tag(post.pic_url)
-        =post.message[0..200]
-        %p
-          =image_tag 'like.png', class: 'like'
-          =post.likes
+      .msg_body
+        .hero-unit
+          .media
+            %a.pull-left{href: post.pic_url}
+              -#%img{alt: "", "data-src" => "holder.js/300x200"}/
+              =image_tag post.pic_url, class: 'img-polaroid img_blog'
+            .media-body
+              %h4.media-heading.text-center
+                =post.from
+              / Nested media object
+              .media
+                -#=post.updated_at
+                %p
+                  =post.message[0..100]
+          %p
+            =image_tag 'like.png', class: 'like'
+            =post.likes
