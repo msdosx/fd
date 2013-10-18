@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017184854) do
+ActiveRecord::Schema.define(version: 20131018075632) do
+
+  create_table "base_settings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "post_keep_days_delta", default: 10
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: true do |t|
     t.string   "message"
-    t.integer  "likes"
+    t.integer  "likes",      default: 0
     t.datetime "updated_at"
     t.string   "from"
     t.integer  "post_id"
@@ -36,8 +43,8 @@ ActiveRecord::Schema.define(version: 20131017184854) do
 
   create_table "posts", force: true do |t|
     t.string   "message"
-    t.integer  "likes"
-    t.string   "pic_url"
+    t.integer  "likes",        default: 0,  null: false
+    t.string   "pic_url",      default: "", null: false
     t.string   "from"
     t.datetime "updated_time"
     t.datetime "created_at"

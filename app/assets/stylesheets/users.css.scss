@@ -28,3 +28,15 @@
   color: black; }
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline; }
+.like{
+  width: 2%;
+  height: 2%;
+}
+.span6.news{
+  padding: 0.5%;
+  margin: 0.5%;
+  .hero-unit{
+    background: rgba(9, 255, 0, 0.20);
+    height: 12em;
+  }
+}
