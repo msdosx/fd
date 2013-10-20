@@ -26,24 +26,17 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          =image_tag 'nav-ico.png', :class =>"img img-rounded nav-img pull-left"
-          -#%a.brand(href="#") Fd
-          = link_to "fD", root_path, :class => "brand"
-          -#.container.nav-collapse
-          -#  %ul.nav
-          -#    %li= link_to "Link 1", "/path1"
-          -#    %li= link_to "Link 2", "/path2"
-          -#    %li= link_to "Link 3", "/path3"
+          =image_tag 'nav-ico.png', :class =>'img img-rounded nav-img pull-left'
+          = link_to 'fD', root_path, :class => 'brand'
 
     .container-fluid
 
       .row-fluid
-
-        .text-center
-          .form-inline
-            .span12
-              = bootstrap_flash
-              = yield
+        .span12
+          = bootstrap_flash
+          .span4
+          .span4.hero-unit.text-center
+            = yield
 
       %footer
         %p &copy; Yuri Panchenko 2013
