@@ -6,7 +6,7 @@
         %li.nav-header
         - @tags.each do |tag|
           %li
-            = link_to "##{tag.name}", user_path(current_user)
+            = link_to "##{tag.name}", user_path(current_user, :current_tag_id => tag.id)
         %hr
 .span9
   %h1.text-center
@@ -35,6 +35,7 @@
         %p
           =image_tag 'like.png', class: 'like'
           =post.likes
+          -#=post.comments.message.all
 .row
   .span6
   .span4

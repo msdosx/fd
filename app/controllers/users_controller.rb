@@ -2,31 +2,23 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-
-  # GET /users
-  # GET /users.json
+  # gem 'inherited_resources'
   def index
     @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
-    @tags= Tag.all     #TODO: remove or change this route
-    @post = Post.where("message <> ''").paginate(:page => params[:page], :per_page => 6)
-    #Post.paginate(:page => params[:page], :per_page => 30)
-    #@post = Post.where("message <> '' AND pic_url <> 0").all
+    @tags= Tag.all
+    params[:current_tag_id] ||= Tag.first[:id]
+    @post = Post
+      .uniq.joins(:opinion)
+      .where('"opinions"."tag_id" = ?', params[:current_tag_id])
+      .paginate(:page => params[:page], :per_page => 6)
+      #.where('"post"."message" IS NOT NULL')
   end
 
-  # GET /users/1/edit
-  def edit
-  end
+  def edit ; end
 
-  # POST /users
-  # POST /users.json
-
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -39,8 +31,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -50,12 +40,10 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:nickname, :name, :soname, :lastname, :bday, :hobby, :enabled)
     end
