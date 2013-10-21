@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @post = Post
       .uniq.joins(:opinion)
       .where('"opinions"."tag_id" = ?', params[:current_tag_id])
+      .where('"posts"."message" IS NOT NULL')
       .paginate(:page => params[:page], :per_page => 6)
       #.where('"post"."message" IS NOT NULL')
   end

@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20131017184854) do
     t.text     "nickname"
     t.text     "about"
     t.integer  "tag_id"
-    t.integer  "delta_days", default: 5
+    t.integer  "delta_days", default: 31
     t.datetime "created_at"
     t.datetime "updated_at"
   end
