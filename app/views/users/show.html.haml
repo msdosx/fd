@@ -35,7 +35,14 @@
         %p
           =image_tag 'like.png', class: 'like'
           =post.likes
-          -#=post.comments.message.all
+          -#-post.comments.each do |comment|
+          -#  -@comment << {comment.from, comment.message}
+          -@comment = Array.new(2)
+          -post.comments.all.each do |comment|
+            -@comments << [comment[:from], comment[:message]]
+          %a.msgpop{'data-content' => '', 'data-original-title' =>"#{@comments}", href: '#',
+            rel: 'popover', 'data-placement' => 'bottom', 'data-trigger' => 'hover' }
+            ="Комментарии#{post.comments.count}"
 .row
   .span6
   .span4
