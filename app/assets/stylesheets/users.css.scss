@@ -37,23 +37,34 @@
   padding: 0.5%;
   margin: 0.5%;
   .hero-unit{
-    background: rgb(244, 243, 255);
-    height: 10em;
-    margin: 0;
+    background: rgb(253, 255, 255);
+    height: 12em;
+    margin: .2em;
+    padding: 1em .5em;
   }
+}
+.post_msg{
+  font-size: .8em;
 }
 .img_blog{
   width: 8em;
   height: 8em;
 }
-.msg_body{
-  //height: 10em;
+
+.content_body{
+  padding: .2em;
+  height: 10em;
 }
-.span2{
+.post_time{
+  font-size: .7em;
+  color: #0084b2;
+  margin: 0;
+  padding: 0;
+}
+.span3{
   .fixed_menu{
     position: fixed;
-    margin: 1em;
-    padding: 0;
+    margin-left: 1.5em;
     width: 19em;
   }
 }

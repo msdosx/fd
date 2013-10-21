@@ -1,4 +1,4 @@
-.span2
+.span3
   .fixed_menu
     .well.sidebar-nav
       %ul.nav.nav-list
@@ -13,19 +13,19 @@
     Лента новостей
   -@post.each do |post|
     .span6.news
-      .msg_body
-        .hero-unit
-          .media
-            -unless post.pic_url == '0'
-              %a.pull-left{href: post.pic_url}
-                =image_tag post.pic_url, class: 'img-polaroid img_blog'
-            .media-body
-              %h4.media-heading.text-center
-                =post.from
-              .media
-                -#=post.updated_at
-                %p
-                  =post.message[0..100]
-          %p
-            =image_tag 'like.png', class: 'like'
-            =post.likes
+      .hero-unit
+        .media
+          %h4.media-heading.text-center
+            =post.from
+          -unless post.pic_url == '0'
+            %a.pull-left{href: post.pic_url}
+              =image_tag post.pic_url, class: 'img-polaroid img_blog'
+          .media-body
+            .media
+              .text-center.post_time
+                =post.updated_time
+              %p.post_msg
+                =post.message[0..150]
+        %p
+          =image_tag 'like.png', class: 'like'
+          =post.likes
