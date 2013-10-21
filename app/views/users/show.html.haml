@@ -35,6 +35,10 @@
         %p
           =image_tag 'like.png', class: 'like'
           =post.likes
+.row
+  .span6
+  .span4
+    = will_paginate @post, class: "apple_pagination"
 :javascript
   $(function (){
      $(".msgpop").popover();

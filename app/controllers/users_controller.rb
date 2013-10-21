@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @tags= Tag.all     #TODO: remove or change this route
-    @post = Post.where("message <> ''").all
+    @post = Post.where("message <> ''").paginate(:page => params[:page], :per_page => 6)
+    #Post.paginate(:page => params[:page], :per_page => 30)
     #@post = Post.where("message <> '' AND pic_url <> 0").all
   end
 
