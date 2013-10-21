@@ -32,10 +32,11 @@
     = f.label :email, :class => 'control-label'
     .controls
       = f.text_field :email, :class => 'text_field'
-  -#.control-group
-  -#  = f.label :role, :class => 'control-label'
-  -#  .controls
-  -#    = f.collection_select :tag_id, Tag.all, :id, :name, prompt: true
+  .control-group
+    -#= hidden_field_tag 'user[role_ids][]', nil
+    - Role.all.each do |role|
+      = check_box_tag dom_id(role), role.id, @user.role_ids.include?(role.id), name: 'user[role_ids][]', id: dom_id(role)
+      = label_tag dom_id(role), role.name
   .form-actions
     - if can? :edit, User
       = f.submit nil, :class => 'btn btn-primary'
