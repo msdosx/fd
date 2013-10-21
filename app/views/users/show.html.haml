@@ -32,17 +32,20 @@
                 =post.message[0..150]
                 -if post.message.length > 150
                   "..."
-        %p
-          =image_tag 'like.png', class: 'like'
-          =post.likes
-          -#-post.comments.each do |comment|
-          -#  -@comment << {comment.from, comment.message}
-          -@comment = Array.new(2)
-          -post.comments.all.each do |comment|
-            -@comments << [comment[:from], comment[:message]]
-          %a.msgpop{'data-content' => '', 'data-original-title' =>"#{@comments}", href: '#',
-            rel: 'popover', 'data-placement' => 'bottom', 'data-trigger' => 'hover' }
-            ="Комментарии#{post.comments.count}"
+        .accordion{:id => "comment_collapse_#{post.id}"}
+          .accordion-group
+            .accordion-heading
+              %a.accordion-toggle{'data-parent' => "#comment_collapse_#{post.id}",
+               'data-toggle' => 'collapse', href: "#collapse_#{post.id}"}
+                = "Комментарии (#{post.comments.count})"
+            .accordion-body.collapse{:id => "collapse_#{post.id}"}
+              .accordion-inner
+                - post.comments.each do |comment|
+                  .well
+                    %b
+                      ="#{comment[:from]} : "
+                    ="#{comment[:message]}"
+                  %hr
 .row
   .span6
   .span4
