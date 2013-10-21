@@ -25,7 +25,17 @@
               .text-center.post_time
                 =post.updated_time
               %p.post_msg
+                -#=post.message[0..150]
+              %a.msgpop{'data-content' => '',
+               'data-original-title' => "#{post.message}", href: '#',
+                rel: 'popover', 'data-placement' => 'bottom', 'data-trigger' => 'hover' }
                 =post.message[0..150]
+                -if post.message.length > 150
+                  "..."
         %p
           =image_tag 'like.png', class: 'like'
           =post.likes
+:javascript
+  $(function (){
+     $(".msgpop").popover();
+  });
