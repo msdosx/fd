@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       .uniq.joins(:opinion)
       .where('"opinions"."tag_id" = ?', params[:current_tag_id])
       .where('"posts"."message" IS NOT NULL')
+      .order('updated_time DESC')
       .paginate(:page => params[:page], :per_page => 6)
       #.where('"post"."message" IS NOT NULL')
   end
