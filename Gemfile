@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'russian', '~> 0.6.0'
+
 gem 'twitter-bootstrap-rails'
 
 group :development, :test do
