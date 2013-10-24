@@ -17,7 +17,6 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
-
   %body
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
@@ -62,14 +61,10 @@
                   -if can? :edit, current_user
                     %li= link_to "Редактировать профиль", edit_user_registration_path(current_user)
                   %li= link_to "Выйти", destroy_user_session_path
-
     .container-fluid
-
       .row-fluid
-
         .span12
           = bootstrap_flash
           = yield
-    
       %footer
         %p &copy; Yuri Panchenko 2013
