@@ -28,23 +28,12 @@
   color: black; }
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline; }
-.like{
-  width: 5%;
-  height: 5%;
-  padding: 1em;
-}
+
 .span6.news{
   padding: 0.5%;
   margin: 0.5%;
-  .hero-unit{
-    background: rgb(253, 255, 255);
-    height: 12em;
-    margin: .2em;
-    padding: 1em .5em;
-  }
 }
 .msgpop{
-  font-size: .8em;
   color: #000000;
 }
 .img_blog{
@@ -57,16 +46,20 @@
   height: 10em;
 }
 .post_time{
-  font-size: .7em;
   color: #0084b2;
   margin: 0;
   padding: 0;
 }
-.span3{
+.span2{
   .fixed_menu{
     position: fixed;
     margin-left: 1.5em;
-    width: 19em;
+    width: 10em;
+  }
+}
+.span10{
+  .span5{
+    margin: .5em;
   }
 }
 .accordion{

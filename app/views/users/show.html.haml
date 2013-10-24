@@ -1,19 +1,20 @@
-.span3
+.span2
   .fixed_menu
     .well.sidebar-nav
       %ul.nav.nav-list
-        %h3 Выбор по рубрикам
+        %h3
+          Теги
         %li.nav-header
         - @tags.each do |tag|
           %li
             = link_to "##{tag.name}", user_path(current_user, :current_tag_id => tag.id)
         %hr
-.span9
+.span10
   %h1.text-center
     Лента новостей
   -@post.each do |post|
-    .span6.news
-      .hero-unit
+    .span5.news
+      .well
         .media
           %h4.media-heading.text-center
             =post.from
