@@ -18,17 +18,12 @@
     = javascript_include_tag 'application'
 
   %body
-    .navbar.navbar-inverse.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar(data-target='.nav-collapse' data-toggle='collapse')
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          =image_tag 'nav-ico.png', :class =>'img img-rounded nav-img pull-left'
-          .branddiv
-            = link_to 'fD', root_path
-          .container.nav-collapse
+    .container
+      .navbar
+        .navbar-inner.span12
+          =image_tag 'nav-ico.png', :class =>'img img-rounded'
+          = link_to 'fD', root_path, :class => 'dash-brand'
+          .nav-collapse
             -if can? :see, :control_menu
               %ul.nav
                 %li.dropdown

@@ -13,6 +13,7 @@ body{
     position: fixed;
     top: 0;
     .navbar-inner.span12{
+      height: 9em;
       margin: 0;
       padding: 0;
       background: $nav-color;
@@ -26,6 +27,10 @@ body{
       }
       .dash-brand:hover{
         color: darken($nav-color, 100%);
+      }
+      .nav-collapse{
+        margin-left: 20em;
+        margin-top: -3em;
       }
     }
   }
