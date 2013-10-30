@@ -6,7 +6,7 @@ $nav-color: #ffffff;
 $background: #0098ff;
 body{
   background: $background;
-  padding-top: 9.5em;
+  padding-top: 10em;
   font-family: sans-serif;
   color: #484848;
   .navbar{
@@ -14,7 +14,7 @@ body{
     top: 0;
     .navbar-inner.span12{
       height: 8.7em;
-      margin: -.5em 0 0 0;
+      margin: -.3em 0 0 0;
       padding: 0;
       background: $nav-color;
       border-radius:  0 0 1em 1em;
@@ -30,7 +30,7 @@ body{
       }
       .nav-collapse{
         margin-left: 20em;
-        margin-top: -3em;
+        margin-top: -3.5em;
       }
     }
   }
