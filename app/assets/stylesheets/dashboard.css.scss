@@ -6,17 +6,18 @@ $nav-color: #ffffff;
 $background: #0098ff;
 body{
   background: $background;
-  padding-top: 8%;
+  padding-top: 10em;
   font-family: sans-serif;
   color: #484848;
   .navbar{
     position: fixed;
     top: 0;
     .navbar-inner.span12{
-      margin: 0;
+      height: 8.7em;
+      margin: -.3em 0 0 0;
       padding: 0;
       background: $nav-color;
-      border-radius: 1em;
+      border-radius:  0 0 1em 1em;
       .dash-brand{
         color: darken($nav-color, 40%);
         vertical-align: text-bottom;
@@ -26,6 +27,10 @@ body{
       }
       .dash-brand:hover{
         color: darken($nav-color, 100%);
+      }
+      .nav-collapse{
+        margin-left: 20em;
+        margin-top: -3.5em;
       }
     }
   }
