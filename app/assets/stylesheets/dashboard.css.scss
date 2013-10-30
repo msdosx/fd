@@ -6,18 +6,18 @@ $nav-color: #ffffff;
 $background: #0098ff;
 body{
   background: $background;
-  padding-top: 8%;
+  padding-top: 9.5em;
   font-family: sans-serif;
   color: #484848;
   .navbar{
     position: fixed;
     top: 0;
     .navbar-inner.span12{
-      height: 9em;
-      margin: 0;
+      height: 8.7em;
+      margin: -.5em 0 0 0;
       padding: 0;
       background: $nav-color;
-      border-radius: 1em;
+      border-radius:  0 0 1em 1em;
       .dash-brand{
         color: darken($nav-color, 40%);
         vertical-align: text-bottom;

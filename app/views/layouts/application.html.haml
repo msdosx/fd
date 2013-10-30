@@ -58,7 +58,9 @@
                   %li= link_to 'Выйти', destroy_user_session_path
     .container
       .row
-        = bootstrap_flash
+        .span5
+          = bootstrap_flash
+      .row
         = yield
       %footer
         %p &copy; Yuri Panchenko 2013
