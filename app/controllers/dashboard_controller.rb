@@ -5,6 +5,5 @@ class DashboardController < ApplicationController
     redirect_to path
   end
 
-  def show
-  end
+  def show;end
 end
