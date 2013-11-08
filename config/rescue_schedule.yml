@@ -1,0 +1,5 @@
+BaseUpdate_job:
+  every: 10m
+  class: BaseLoader
+  args:
+  description: Update database
