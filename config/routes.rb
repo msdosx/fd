@@ -1,7 +1,7 @@
 Fd::Application.routes.draw do
   resources :opinions
 
-  get "dashboard/show"
+  get 'dashboard/show'
 
 
   devise_for :users
@@ -10,6 +10,7 @@ Fd::Application.routes.draw do
   resources :tags
 
   root :to => 'dashboard#index'
+  mount Resque::Server, at: '/resque'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

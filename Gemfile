@@ -54,8 +54,9 @@ gem 'koala', '~> 1.7.0rc1'
 
 gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 3.0'
-gem 'resque'
-
+gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'resque', require: 'resque/server'
+gem 'figaro'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
