@@ -20,11 +20,14 @@
 
   %body
     .container
-      .navibar.span12
-        =image_tag 'nav-ico.png', :class =>'img img-rounded'
-        = link_to 'fD', root_path, :class => 'dash-brand'
+      .navbar
+        .navbar-inner.span12
+          =image_tag 'nav-ico.png', :class =>'img img-rounded'
+          = link_to 'fD', root_path, :class => 'dash-brand'
       .row
-        = bootstrap_flash
+        .span5
+          = bootstrap_flash
+      .row
         = yield
 
       %footer

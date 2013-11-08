@@ -37,32 +37,17 @@ gem 'russian', '~> 0.6.0'
 gem 'twitter-bootstrap-rails'
 
 group :development, :test do
-  gem "better_errors"
+  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'awesome_print'
 end
-
-gem "haml-rails"
-
+gem 'haml-rails'
 gem 'devise'
 gem 'cancan'
-
-gem "less-rails"
-
-gem "koala", "~> 1.7.0rc1"
-
+gem 'less-rails'
+gem 'koala', '~> 1.7.0rc1'
 gem 'will_paginate', '~> 3.0'
-gem "paperclip", "~> 3.0"
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'resque', require: 'resque/server'
+gem 'figaro'
